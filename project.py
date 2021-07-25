@@ -5,8 +5,6 @@ import pymongo
 
 app = Flask(__name__)
 
-### always do the connection in try except
-###########################################
 # Connecting  with MongoDB database
 try:
     mongo = pymongo.MongoClient(
@@ -22,7 +20,6 @@ except:
 
 
 
-#####################################
 # Create the cart
 @app.route("/carts", methods=["POST"])
 def create_cart():
@@ -50,7 +47,6 @@ def create_cart():
         print("*****************")
 
 
-#####################################
 # Read from cart
 @app.route("/carts", methods=["GET"])
 def show_items_in_cart():
@@ -74,7 +70,6 @@ def show_items_in_cart():
 
 
 
-#####################################
 # Update item in cart
 
     ## Update name of item in cart
@@ -176,7 +171,7 @@ def update_item_quantity(id):
 
 
 #####################################
-# Delete  item from cart
+# Delete  
 @app.route("/carts/<id>", methods=["DELETE"])
 def delete_item(id):
     try:
